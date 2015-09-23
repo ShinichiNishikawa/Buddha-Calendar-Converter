@@ -35,11 +35,23 @@ class SampleTest extends WP_UnitTestCase {
 
 	}
 
-	public function test_all_in_EN() {
+	public function test_date_format_all_in_EN() {
 
 		$this->assertEquals( 
 			'21 Mon 21 Monday 1 st 1 263 39 September 09 Sep 9 30 0 2558 2015 15 am AM 167 3 3 03 03 00 45 000000 UTC 0 +0000 +00:00 UTC 0 2015-09-21T03:00:45+00:00 Mon, 21 Sep 2015 03:00:45 +0000 1442804445', 
 			get_the_date( 
+				"d D j l N S w z W F m M n t L o Y y a A B g G h H i s u e I O P T Z c r U", 
+				$this->the_post 
+			) 
+		);
+
+	}
+
+	public function test_time_format_all_in_EN() {
+
+		$this->assertEquals( 
+			'21 Mon 21 Monday 1 st 1 263 39 September 09 Sep 9 30 0 2558 2015 15 am AM 167 3 3 03 03 00 45 000000 UTC 0 +0000 +00:00 UTC 0 2015-09-21T03:00:45+00:00 Mon, 21 Sep 2015 03:00:45 +0000 1442804445', 
+			get_the_time( 
 				"d D j l N S w z W F m M n t L o Y y a A B g G h H i s u e I O P T Z c r U", 
 				$this->the_post 
 			) 
@@ -61,12 +73,24 @@ class SampleTest extends WP_UnitTestCase {
 
 	}
 
-	public function test_all_in_TH() {
+	public function test_date_format_all_in_TH() {
 
 		$GLOBALS['wp_locale'] = new WP_Locale();
 		$this->assertEquals( 
 			'21 จันทร์ 21 วันจันทร์ 1 st 1 263 39 กันยายน 09 ก.ย. 9 30 0 2558 2015 15 am AM 167 3 3 03 03 00 45 000000 UTC 0 +0000 +00:00 UTC 0 2015-09-21T03:00:45+00:00 Mon, 21 Sep 2015 03:00:45 +0000 1442804445', 
 			get_the_date( 
+				"d D j l N S w z W F m M n t L o Y y a A B g G h H i s u e I O P T Z c r U", 
+				$this->the_post 
+		) );
+
+	}
+
+	public function test_time_format_all_in_TH() {
+
+		$GLOBALS['wp_locale'] = new WP_Locale();
+		$this->assertEquals( 
+			'21 จันทร์ 21 วันจันทร์ 1 st 1 263 39 กันยายน 09 ก.ย. 9 30 0 2558 2015 15 am AM 167 3 3 03 03 00 45 000000 UTC 0 +0000 +00:00 UTC 0 2015-09-21T03:00:45+00:00 Mon, 21 Sep 2015 03:00:45 +0000 1442804445', 
+			get_the_time( 
 				"d D j l N S w z W F m M n t L o Y y a A B g G h H i s u e I O P T Z c r U", 
 				$this->the_post 
 		) );
